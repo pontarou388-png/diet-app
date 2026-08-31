@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>ダイエット記録</title>
+<title>Body・Shift</title>
 <style>
 :root{
   --pink:#f7c6d2; --pink-deep:#e0607e; --pink-bg:#fdeef2;
@@ -49,6 +49,7 @@ input:focus{outline:2px solid var(--pink);outline-offset:0;border-color:var(--pi
   background:var(--pink-bg);overflow:hidden;display:flex;align-items:center;justify-content:center;}
 .icon-box img{width:100%;height:100%;object-fit:cover;}
 .icon-ph{color:#c99aa8;font-size:30px;font-weight:700;text-align:center;line-height:1.6;}
+.appname{font-size:36px;font-weight:700;color:var(--pink-deep);letter-spacing:3px;margin-bottom:8px;}
 .goal-line{font-size:56px;font-weight:700;line-height:1.1;}
 .goal-line .num{color:var(--pink-deep);}
 .goal-line .kg{font-size:40px;}
@@ -146,6 +147,7 @@ input.uline:focus{outline:none;border-bottom:2px solid var(--pink-deep);backgrou
         <button class="overbtn" id="btnIcon" style="right:76px;bottom:28px;">変更</button>
       </div>
       <div class="topinfo">
+        <div class="appname">Body・Shift</div>
         <div class="goal-line">目標 <span class="num" id="goalTxt">○○</span><span class="kg">kg まで</span></div>
         <button class="small mt8" id="btnGoal">目標を変更する</button>
         <div class="remain">あと <span class="num" id="remainTxt">○○</span><span class="kg">kg</span></div>
