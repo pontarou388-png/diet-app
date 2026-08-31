@@ -42,7 +42,7 @@ input:focus{outline:2px solid var(--pink);outline-offset:0;border-color:var(--pi
 .overbtn:hover{background:#fbe0e8;}
 
 /* ===== ホーム ===== */
-.home-grid{display:grid;grid-template-rows:384px 1fr 66px;gap:18px;height:100%;}
+.home-grid{display:grid;grid-template-rows:384px 1fr 60px;gap:14px;height:100%;}
 .top{display:grid;grid-template-columns:404px minmax(0,1fr);gap:24px;align-items:center;}
 .topinfo{text-align:center;}
 .icon-box{width:384px;height:384px;border-radius:50%;border:none;
@@ -82,7 +82,7 @@ input:focus{outline:2px solid var(--pink);outline-offset:0;border-color:var(--pi
 .cal .d.has{background:var(--pink-bg);border-color:var(--pink);font-weight:700;}
 .cal .d.today{outline:2px solid var(--pink-deep);}
 .cal .d.empty{cursor:default;}
-.btnrow{display:flex;gap:18px;justify-content:center;align-items:center;}
+.btnrow{display:flex;gap:18px;justify-content:flex-start;align-items:flex-start;padding-left:26px;}
 .btnrow button{font-size:18px;padding:13px 26px;}
 
 /* ===== 記入ページ ===== */
@@ -260,10 +260,19 @@ var db={goal:null,icon:null,iconPos:{x:50,y:50,z:1},free:null,records:{}};
 
 /* 16:9 のステージを画面サイズに合わせる */
 function fitStage(){
-  var s=Math.min(window.innerWidth/1600,window.innerHeight/900);
+  var vv=window.visualViewport;
+  var w=vv?vv.width:window.innerWidth;
+  var h=vv?vv.height:window.innerHeight;
+  var s=Math.min(w/1600,h/900)*0.98;
   document.getElementById('stage').style.transform='scale('+s+')';
 }
 window.addEventListener('resize',fitStage);
+window.addEventListener('load',fitStage);
+if(window.visualViewport){
+  window.visualViewport.addEventListener('resize',fitStage);
+  window.visualViewport.addEventListener('scroll',fitStage);
+}
+setTimeout(fitStage,300);
 
 function load(){
   try{
